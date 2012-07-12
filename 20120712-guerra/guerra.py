@@ -3,7 +3,7 @@ class Relations:
         self.data = {}
  
     def find(self, v):
-        if not v in self.data: 
+        if v not in self.data: 
             return v
         return self.find(self.data[v])
         
