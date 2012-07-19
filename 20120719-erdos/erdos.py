@@ -13,7 +13,7 @@ class Erdometer:
 
         Q.append((0, this_author))
         while len(Q):
-            distance, author  = Q.popleft()
+            distance, author = Q.popleft()
 
             if author == 'Erdos': return distance
             if author in V: continue
