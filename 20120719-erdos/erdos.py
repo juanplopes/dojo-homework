@@ -8,14 +8,14 @@ class Erdometer:
         for author in book:
             self.authors[author].update(book)
         
-    def rank(self, this_author):
+    def distance(self, from_author, to_author='Erdos'):
         Q, V = deque(), set()
 
-        Q.append((0, this_author))
+        Q.append((0, from_author))
         while len(Q):
             distance, author = Q.popleft()
 
-            if author == 'Erdos': return distance
+            if author == to_author: return distance
             if author in V: continue
             V.add(author)
             
