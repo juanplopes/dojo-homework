@@ -7,9 +7,8 @@ def euclid(a, b):
 def solve(a, b, c):
     g, x, y = euclid(a, b)
     if c%g: return None
-    a, b, c = a/g, b/g, c/g
-    x, y = x*c, y*c
-    return min(abs(x%b*a*g), abs(y%a*b*g))
+    ag, bg, cg = a/g, b/g, c/g
+    return min(x*cg%bg*a, y*cg%ag*b) or c
 
 def miojo(t, a, b):
     return solve(a, -b, t)
