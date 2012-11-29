@@ -8,21 +8,21 @@ def augment(G, V, source, sink):
 
     for next in G[source]:
         if next not in V and augment(G, V, next, sink):
-            del G[source][next]
-            G[next][source] = True
+            G[source].remove(next)
+            G[next].add(source)
             return True
             
     return False
 
 def laser(soldiers):
-    G = defaultdict(dict)
+    G = defaultdict(set)
 
     for row, column in soldiers:
-        r, c = 'R%s' % [row], 'C%s' % [column]
+        r, c = 'row%d' % row, 'col%d' % column
 
-        G[0][r] = True
-        G[r][c] = True
-        G[c][42] = True
+        G[0].add(r)
+        G[r].add(c)
+        G[c].add(42)
 
     total = 0
     while augment(G, set(), 0, 42):
