@@ -1,3 +1,7 @@
+'''
+Original problem: 
+http://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2414
+'''
 from collections import defaultdict
 
 def augment(G, V, source, sink):
